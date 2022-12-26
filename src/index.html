@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <div class="header logo">
+    <img src="./assets/Bookingcom-Logo100px.png" alt="logo">
+  </div>
+
+    <div id="conteiner">
+        <nav class="navbar navbar-expand-lg">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="flight-tab" data-bs-toggle="tab" data-bs-target="#flight-input" type="button" role="tab" aria-controls="flight-input" aria-selected="true"><i class="fa fa-plane"></i>Flights</button>
+                <button class="nav-link" id="hotel-tab" data-bs-toggle="tab" data-bs-target="#hotel-input" type="button" role="tab" aria-controls="hotel-input" aria-selected="false"><i class="fa fa-bed"></i>Hotels</button>
+                <button class="nav-link" id="car-tab" data-bs-toggle="tab" data-bs-target="#car-input" type="button" role="tab" aria-controls="car-input" aria-selected="false"><i class="fa fa-car"></i>Cars</button>
+            </div>
+        </nav>
+
+        <div class="tab-content" id="input-conteiner">
+            <div class="tab-pane fade show active" id="flight-input" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
+                <div class="col" id="date-input">
+                    <form class="row g-3 needs-validation" id="form-flight-startdate" method="get">
+                        <label for="inputFlightsStartDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="input-flight-startdate" placeholder="mm/dd/yyyy" aria-label="First name" required>
+                    </form>
+                    <form class="row g-3 needs-validation" id="form-flight-enddate" method="get">
+                        <label for="inputFlightsStartDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="input-flight-enddate" placeholder="mm/dd/yyyy" aria-label="Last name" required>
+                    </form>
+                </div>
+                <form class="mb-3 needs-validation" id="form-input-from" method="get">
+                    <label for="formGroupExampleInput" class="form-label">From</label>
+                    <input type="text" class="form-control" id="input-from" required>
+                </form>
+                <form class="mb-3 needs-validation" id="form-input-to" method="get">
+                    <label for="formGroupExampleInput2" class="form-label">To</label>
+                    <input type="text" class="form-control" id="input-to" required>
+                </form>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="flight-button-clear" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="flight-button-clear">Clear</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="flight-button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="flight-button-search">Search</label>
+
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade show" id="hotel-input" role="tabpanel" aria-labelledby="hotel-tab" tabindex="0">
+                <div class="col" id="date-input">
+                    <form class="row g-3" id="form-hotel-startdate" method="get">
+                        <label for="inputHotelStartDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="input-hotel-startdate" placeholder="mm/dd/yyyy" aria-label="First name">
+                    </form>
+
+                    <form class="row g-3" id="form-hotel-enddate" method="get">
+                        <label for="inputHotelStartDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="input-hotel-enddate" placeholder="mm/dd/yyyy" aria-label="Last name">
+                    </form>
+                </div>
+
+                <h1 class="header">Amenities</h1>
+
+                <form class="dropdown" method="get" id="form-hotel-stars">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-hotel-stars" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-star"></i>
+                    </button>
+                    <ul class="dropdown-menu" id="ul-hotel-star">
+                        <li value="1" class="dropdown-item star" id="star1"><i class="fa fa-star"></i></li>
+                        <li value="2" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+                        <li value="3" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+                        <li value="4" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+                        <li value="5" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+                    </ul>
+                </form>
+
+                <h1 class="header">Countries</h1>
+
+                <form class="dropdown" id="form-hotel-country-menu" method="get">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-hotel-country-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <ul class="dropdown-menu" id="hotel-country-menu"></ul>
+                </form>
+
+                <h1 class="header">Cities</h1>
+
+                <form class="dropdown" id="form-hotel-city-menu" method="get">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-hotel-city-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <ul class="dropdown-menu" id="hotel-city-menu"></ul>
+                </form>
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="hotel-button-clear" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="hotel-button-clear">Clear</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="hotel-button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="hotel-button-search">Search</label>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade show" id="car-input" role="tabpanel" aria-labelledby="car-tab" tabindex="0">
+                <div class="col" id="date-input">
+                    <form class="row g-3" id="form-car-startdate" method="get">
+                        <label for="inputCarStartDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="input-car-startdate" placeholder="mm/dd/yyyy" aria-label="First name">
+                    </form>
+
+                    <form class="row g-3" id="form-car-enddate" method="get">
+                        <label for="inputCarStartDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="input-car-enddate" placeholder="mm/dd/yyyy" aria-label="Last name">
+                    </form>
+                </div>
+
+                <h1 class="header">Type</h1>
+
+                <form class="dropdown" method="get" id="form-car-stars">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-car-type" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Business
+                    </button>
+                    <ul class="dropdown-menu" id="ul-car-type">
+                        <li class="dropdown-item type" id="business">Business</li>
+                        <li class="dropdown-item type" id="economy">Economy</li>
+                    </ul>
+                </form>
+
+                <h1 class="header">Countries</h1>
+
+                <form class="dropdown" id="form-car-country-menu" method="get">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-car-country-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <ul class="dropdown-menu" id="car-country-menu"></ul>
+                </form>
+
+                <h1 class="header">Cities</h1>
+
+                <form class="dropdown" id="form-car-city-menu" method="get">
+                    <button class="btn btn-secondary dropdown-toggle" id="button-car-city-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <ul class="dropdown-menu" id="car-city-menu"></ul>
+                </form>
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="car-button-clear" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="car-button-clear">Clear</label>
+
+                    <input type="radio" class="btn-check" type="submit" name="btnradio" id="car-button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="car-button-search">Search</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="file:///C:/Users/USER/OneDrive/Документы/GitHub/Webpack/src/history.html">
+      <input class="link-history" type="submit" value="Please check your data">
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
