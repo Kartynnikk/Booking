@@ -149,39 +149,17 @@ flightSearchButton.addEventListener("click", () => {
 
   flightData.flightStartDate = flightStartDateInForm;
 
-  // const checkDate = () => {
-  //   if (currentDate.getTime() >= flightStartDate.getTime()) {
-  //     flightSearchButton.removeAttribute("disabled");
-  //   } else {
-  //     flightSearchButton.setAttribute("disabled", "disabled");
-  //   }
-  // };
-
-  // checkDate();
-
-  // if (currentDate.getTime() >= flightStartDate.getTime()) {
-  //   flightSearchButton.disabled = true;
-  // }
-
-  // if (flightStartDate) {
-  //   flightSearchButton.disabled = false;
-  // }
-
-  currentDate.getTime() <= flightStartDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
-
   const flightEndDate = new Date(inputFlightEndDate.value);
   const flightEndDateInForm = flightEndDate.toLocaleDateString("en-US", options);
 
   flightData.flightEndDate = flightEndDateInForm;
 
-  flightEndDate.getTime() >= currentDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
-
   flightData.flightFrom = inputFrom.value;
   flightData.flightTo = inputTo.value;
+
+  flightStartDate.getTime() <= currentDate.getTime() || flightEndDate.getTime() <= flightStartDate.getTime()
+    ? flightSearchButton.setAttribute("disabled", true)
+    : flightSearchButton.removeAttribute("disabled");
 
   console.log(flightData);
 
@@ -189,27 +167,6 @@ flightSearchButton.addEventListener("click", () => {
   inputTo.value;
 
   arrFlight.push(flightData);
-
-  (() => {
-    const forms = document.querySelectorAll(".needs-validation");
-
-    Array.from(forms).forEach((form) => {
-      form.addEventListener(
-        "submit",
-        (event) => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-
-          form.classList.add("was-validated");
-        },
-        false
-      );
-    });
-  })();
-
-  console.log(checkValidation());
 
   localStorage.setItem("historyDataFlight", JSON.stringify(arrFlight));
 });
@@ -241,20 +198,16 @@ hotelSearchButton.addEventListener("click", () => {
   const hotelStartDate = new Date(inputHotelStartDate.value);
   const hotelStartDateInForm = hotelStartDate.toLocaleDateString("en-US", options);
 
-  hotelData.hotelStartDate = hotelStartDateInForm;
-
-  currentDate.getTime() <= hotelStartDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
-
   const hotelEndDate = new Date(inputHotelEndDate.value);
   const hotelEndDateInForm = hotelEndDate.toLocaleDateString("en-US", options);
 
+  hotelData.hotelStartDate = hotelStartDateInForm;
+
   hotelData.hotelEndDate = hotelEndDateInForm;
 
-  hotelEndDate.getTime() >= currentDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
+  hotelStartDate.getTime() <= currentDate.getTime() || hotelEndDate.getTime() <= hotelStartDate.getTime()
+    ? hotelSearchButton.setAttribute("disabled", true)
+    : hotelSearchButton.removeAttribute("disabled");
 
   buttonHotelStars.innerHTML;
   buttonHotelCountryMenu.innerHTML;
@@ -266,10 +219,6 @@ hotelSearchButton.addEventListener("click", () => {
   arrHotel.push(hotelData);
 
   localStorage.setItem("historyDataHotel", JSON.stringify(arrHotel));
-
-  if (hotelStartDate && hotelEndDate && buttonHotelStars && buttonHotelCountryMenu && buttonHotelCityMenu) {
-    hotelSearchButton.disabled = false;
-  }
 });
 
 hotelClearButton.addEventListener("click", () => {
@@ -302,18 +251,14 @@ carSearchButton.addEventListener("click", () => {
 
   carData.carStartDate = carStartDateInForm;
 
-  currentDate.getTime() <= carStartDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
-
   const carEndDate = new Date(inputCarEndDate.value);
   const carEndDateInForm = carEndDate.toLocaleDateString("en-US", options);
 
   carData.carEndDate = carEndDateInForm;
 
-  carEndDate.getTime() >= currentDate.getTime()
-    ? console.log("Correct date")
-    : console.log("Please write correct date");
+  carStartDate.getTime() <= currentDate.getTime() || carEndDate.getTime() <= carStartDate.getTime()
+    ? carSearchButton.setAttribute("disabled", true)
+    : carSearchButton.removeAttribute("disabled");
 
   buttonCarType.innerHTML;
   buttonCarCountryMenu.innerHTML;
@@ -326,9 +271,9 @@ carSearchButton.addEventListener("click", () => {
 
   localStorage.setItem("historyDataCar", JSON.stringify(arrCar));
 
-  if (carStartDate && carEndDate && buttonCarType && buttonCarCountryMenu && buttonCarCityMenu) {
-    carSearchButton.disabled = false;
-  }
+  // if (carStartDate && carEndDate && buttonCarType && buttonCarCountryMenu && buttonCarCityMenu) {
+  //   carSearchButton.disabled = false;
+  // }
 });
 
 carClearButton.addEventListener("click", () => {
