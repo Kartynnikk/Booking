@@ -29,7 +29,7 @@
         </nav>
 
         <div class="tab-content" id="input-conteiner">
-            <div class="tab-pane fade show active " id="flight-input" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
+            <div class="tab-pane form-conteiner fade show active " id="flight-input" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
                 <div class="col" id="date-input">
                     <form class="row g-3 needs-validation d-none d-md-block" id="form-flight-startdate" method="get">
                         <label for="inputFlightsStartDate" class="form-label">Start Date</label>
@@ -52,14 +52,14 @@
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="flight-button-clear" autocomplete="off">
                     <label class="btn btn-outline-primary d-none d-md-block" for="flight-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="flight-button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="flight-button-search">Search</label>
+                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
 
                 </div>
             </div>
 
 
-            <div class="tab-pane fade show" id="hotel-input" role="tabpanel" aria-labelledby="hotel-tab" tabindex="0">
+            <div class="tab-pane form-conteiner fade show" id="hotel-input" role="tabpanel" aria-labelledby="hotel-tab" tabindex="0">
                 <div class="col" id="date-input">
                     <form class="row g-3 d-none d-md-block" id="form-hotel-startdate" method="get">
                         <label for="inputHotelStartDate" class="form-label">Start Date</label>
@@ -105,13 +105,13 @@
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="hotel-button-clear" autocomplete="off" checked>
                     <label class="btn btn-outline-primary d-none d-md-block" for="hotel-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="hotel-button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="hotel-button-search">Search</label>
+                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
                 </div>
             </div>
 
 
-            <div class="tab-pane fade show" id="car-input" role="tabpanel" aria-labelledby="car-tab" tabindex="0">
+            <div class="tab-pane form-conteiner fade show" id="car-input" role="tabpanel" aria-labelledby="car-tab" tabindex="0">
                 <div class="col" id="date-input">
                     <form class="row g-3 d-none d-md-block" id="form-car-startdate" method="get">
                         <label for="inputCarStartDate" class="form-label">Start Date</label>
@@ -154,8 +154,8 @@
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="car-button-clear" autocomplete="off" checked>
                     <label class="btn btn-outline-primary d-none d-md-block" for="car-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check d-none d-md-block" type="submit" name="btnradio" id="car-button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="car-button-search">Search</label>
+                    <input type="radio" class="btn-check search d-none d-md-block" type="submit" name="btnradio" id="button-search" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
         </button>
       
         <div class="collapse navbar-collapse top_nav" id="navbarContent">
-          <ul class="navbar-nav mr-auto mb-2">
+          <ul class="navbar-nav mr-auto mb-2 d-block d-sm-none">
             <li class="nav-item">
               <a href="#" class="nav-link">Flights</a>
             </li>

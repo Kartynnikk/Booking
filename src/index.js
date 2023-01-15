@@ -33,6 +33,8 @@ const economy = document.getElementById("economy");
 
 const buttonCarType = document.getElementById("button-car-type");
 
+const formConteiner = document.querySelectorAll(".form-conteiner");
+
 const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
 const arrFlight = [];
@@ -136,7 +138,7 @@ const getCityCar = (data) => {
   }
 };
 
-flightSearchButton.addEventListener("click", () => {
+const getFlightForm = () => {
   const flightData = {
     flightStartDate: "",
     flightEndDate: "",
@@ -157,9 +159,11 @@ flightSearchButton.addEventListener("click", () => {
   flightData.flightFrom = inputFrom.value;
   flightData.flightTo = inputTo.value;
 
-  flightStartDate.getTime() <= currentDate.getTime() || flightEndDate.getTime() <= flightStartDate.getTime()
-    ? flightSearchButton.setAttribute("disabled", true)
-    : flightSearchButton.removeAttribute("disabled");
+  if (flightStartDate.getTime() <= currentDate.getTime() || flightEndDate.getTime() <= flightStartDate.getTime()) {
+    buttonSearch.setAttribute("disabled", true);
+  } else {
+    buttonSearch.removeAttribute("disabled");
+  }
 
   console.log(flightData);
 
@@ -169,7 +173,7 @@ flightSearchButton.addEventListener("click", () => {
   arrFlight.push(flightData);
 
   localStorage.setItem("historyDataFlight", JSON.stringify(arrFlight));
-});
+};
 
 flightClearButton.addEventListener("click", () => {
   inputFlightStartDate.value = "";
@@ -178,7 +182,7 @@ flightClearButton.addEventListener("click", () => {
   inputTo.value = "";
 });
 
-hotelSearchButton.addEventListener("click", () => {
+const getHotelForm = () => {
   const hotelData = {
     hotelStartDate: "",
     hotelEndDate: "",
@@ -205,9 +209,11 @@ hotelSearchButton.addEventListener("click", () => {
 
   hotelData.hotelEndDate = hotelEndDateInForm;
 
-  hotelStartDate.getTime() <= currentDate.getTime() || hotelEndDate.getTime() <= hotelStartDate.getTime()
-    ? hotelSearchButton.setAttribute("disabled", true)
-    : hotelSearchButton.removeAttribute("disabled");
+  if (hotelStartDate.getTime() <= currentDate.getTime() || hotelEndDate.getTime() <= hotelStartDate.getTime()) {
+    buttonSearch.setAttribute("disabled", true);
+  } else {
+    buttonSearch.removeAttribute("disabled");
+  }
 
   buttonHotelStars.innerHTML;
   buttonHotelCountryMenu.innerHTML;
@@ -219,7 +225,7 @@ hotelSearchButton.addEventListener("click", () => {
   arrHotel.push(hotelData);
 
   localStorage.setItem("historyDataHotel", JSON.stringify(arrHotel));
-});
+};
 
 hotelClearButton.addEventListener("click", () => {
   inputHotelStartDate.value = "";
@@ -229,7 +235,7 @@ hotelClearButton.addEventListener("click", () => {
   buttonHotelCityMenu.innerHTML = "";
 });
 
-carSearchButton.addEventListener("click", () => {
+const getCarForm = () => {
   const carData = {
     carStartDate: "",
     carEndDate: "",
@@ -256,9 +262,11 @@ carSearchButton.addEventListener("click", () => {
 
   carData.carEndDate = carEndDateInForm;
 
-  carStartDate.getTime() <= currentDate.getTime() || carEndDate.getTime() <= carStartDate.getTime()
-    ? carSearchButton.setAttribute("disabled", true)
-    : carSearchButton.removeAttribute("disabled");
+  if (carStartDate.getTime() <= currentDate.getTime() || carEndDate.getTime() <= carStartDate.getTime()) {
+    buttonSearch.setAttribute("disabled", true);
+  } else {
+    buttonSearch.removeAttribute("disabled");
+  }
 
   buttonCarType.innerHTML;
   buttonCarCountryMenu.innerHTML;
@@ -270,11 +278,7 @@ carSearchButton.addEventListener("click", () => {
   arrCar.push(carData);
 
   localStorage.setItem("historyDataCar", JSON.stringify(arrCar));
-
-  // if (carStartDate && carEndDate && buttonCarType && buttonCarCountryMenu && buttonCarCityMenu) {
-  //   carSearchButton.disabled = false;
-  // }
-});
+};
 
 carClearButton.addEventListener("click", () => {
   inputCarStartDate.value = "";
@@ -282,4 +286,24 @@ carClearButton.addEventListener("click", () => {
   buttonCarType.innerHTML = "Business";
   buttonCarCountryMenu.innerHTML = "";
   buttonCarCityMenu.innerHTML = "";
+});
+
+const buttonSearch = document.getElementById("button-search");
+
+const flightInput = document.getElementById("flight-input");
+const hotelInput = document.getElementById("hotel-input");
+const carInput = document.getElementById("car-input");
+
+formConteiner.forEach((form) => {
+  buttonSearch.addEventListener("click", () => {
+    if (form == flightInput) {
+      getFlightForm(form);
+    }
+    if (form == hotelInput) {
+      getHotelForm(form);
+    }
+    if (form == carInput) {
+      getCarForm(form);
+    }
+  });
 });
