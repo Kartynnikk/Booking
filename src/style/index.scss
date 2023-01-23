@@ -1,79 +1,79 @@
 @mixin position($display, $space) {
-    display: $display;
-    justify-content: $space;
+  display: $display;
+  justify-content: $space;
 }
 
-$font-s:18px;
-$font-w:bold;
-#conteiner {
-    @include position(flex, space-between);
-    flex-direction: row;
+$font-s: 18px;
+$font-w: bold;
+#container {
+  @include position(flex, space-between);
+  flex-direction: row;
 }
 
 .nav-tabs {
-    display: inline-block;
-   margin-top: -60px; 
+  display: inline-block;
+  margin-top: -60px;
 }
 
 .nav-link {
-    width: 150px;
-    height: 50px;
-    @include position(flex, space-around);
-    margin-left: 20px;
+  width: 150px;
+  height: 50px;
+  @include position(flex, space-around);
+  margin-left: 20px;
 }
 
 .fa {
-    padding-top: 3px;
-    padding-right: 10px;
+  padding-top: 3px;
+  padding-right: 10px;
 }
 
 .tab-content {
-    display: inline-block;
+  display: inline-block;
 }
 
 .tab-pane {
-    width: 1000px;
-    margin-left: -1200px;
-    margin-top: 20px;
+  width: 1000px;
+  margin-left: -1200px;
+  margin-top: 20px;
 }
 
 .header,
 label {
-    font-size: $font-s;
-    font-weight: $font-w;
+  font-size: $font-s;
+  font-weight: $font-w;
 }
 
 .row {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .btn-group {
-    width: 200px;
-    margin-left: 825px;
-    margin-top: 20px;
-    .btn {
-        border: none;
-    }
+  width: 200px;
+  margin-left: 825px;
+  margin-top: 20px;
+  .btn {
+    border: none;
+  }
 }
 
 .btn-secondary {
-    width: 1000px;
-    border: 2px solid rgb(233, 232, 232);
-    background-color: white;
-    color: rgba(0, 0, 0, 0.518);
-    font-size: 18px;
-    text-align: left;
-    margin-bottom: 20px;
-    height: 40px;
-    i {
-        color: black;
-    }
+  width: 1000px;
+  border: 2px solid rgb(233, 232, 232);
+  background-color: white;
+  color: rgba(0, 0, 0, 0.518);
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 20px;
+  height: 40px;
+  i {
+    color: black;
+  }
 }
 
 #date-input {
-    @include position(flex, space-between);
-    flex-direction: row;
-    width: 990px;
+  @include position(flex, space-between);
+  flex-direction: row;
+  width: 990px;
 }
 
 #form-flight-startdate,
@@ -82,11 +82,11 @@ label {
 #form-hotel-enddate,
 #form-car-startdate,
 #form-car-enddate {
-    width: 500px;
+  width: 500px;
 }
 
 #hotel {
-    margin-left: -1200px;
+  margin-left: -1200px;
 }
 
 #button-hotel-stars,
@@ -96,18 +96,18 @@ label {
 #button-car-country-menu,
 #button-hotel-city-menu,
 #button-hotel-country-menu {
-    width: 1010px;
-    margin-left: -10px;
+  width: 1010px;
+  margin-left: -10px;
 }
 
-.header-history{
+.header-history {
   font-size: var(--bs-body-font-size);
   font-family: var(--bs-body-font-family);
   margin-top: 20px;
   margin-left: 20px;
-} 
+}
 
-.conteiner-history{
+.container-history {
   padding-left: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -121,36 +121,46 @@ label {
   flex-direction: row;
   padding-right: 10px;
   padding-top: 8px;
-  .text{
+  .text {
     width: 700px;
   }
-  .cross{
+  .cross {
     cursor: pointer;
   }
 }
 
-.cross{
+.cross {
   width: 1em;
   height: 1em;
   background-color: rgba(99, 99, 254, 0.842);
-  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
 }
 
-.link-history{
+.link-history {
   margin-left: 1160px;
   margin-top: 20px;
 }
 
-.logo{
+.logo {
   width: 100%;
   background-color: #013580;
 }
 
-
-
-
 // @media(max-width:768px) {
-//   #conteiner {
+//   #container {
 //       width: 95%;
 //   }
 //   .logo{

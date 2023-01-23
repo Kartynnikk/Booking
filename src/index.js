@@ -4,11 +4,8 @@ const inputHotelStartDate = document.getElementById("input-hotel-startdate");
 const inputHotelEndDate = document.getElementById("input-hotel-enddate");
 const inputCarStartDate = document.getElementById("input-car-startdate");
 const inputCarEndDate = document.getElementById("input-car-enddate");
-const flightSearchButton = document.getElementById("flight-button-search");
 const flightClearButton = document.getElementById("flight-button-clear");
-const hotelSearchButton = document.getElementById("hotel-button-search");
 const hotelClearButton = document.getElementById("hotel-button-clear");
-const carSearchButton = document.getElementById("car-button-search");
 const carClearButton = document.getElementById("car-button-clear");
 const inputFrom = document.getElementById("input-from");
 const inputTo = document.getElementById("input-to");
@@ -21,19 +18,15 @@ const carCountryMenu = document.getElementById("car-country-menu");
 const buttonCarCountryMenu = document.getElementById("button-car-country-menu");
 const carCityMenu = document.getElementById("car-city-menu");
 const buttonCarCityMenu = document.getElementById("button-car-city-menu");
-
-const currentDate = new Date();
+const buttonSearchFlights = document.getElementById("button-search-flights");
+const buttonSearchHotels = document.getElementById("button-search-hotels");
+const buttonSearchCars = document.getElementById("button-search-cars");
 
 const star1 = document.getElementById("star1");
 const stars = document.querySelectorAll(".star");
 const type = document.querySelectorAll(".type");
 
-const business = document.getElementById("business");
-const economy = document.getElementById("economy");
-
 const buttonCarType = document.getElementById("button-car-type");
-
-const formConteiner = document.querySelectorAll(".form-conteiner");
 
 const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
@@ -138,41 +131,37 @@ const getCityCar = (data) => {
   }
 };
 
+const setReusableFunction = (startDateInput, endDateInput, dataObject, array, localStorageName) => {
+  const startDate = new Date(startDateInput.value);
+  const startDateInForm = startDate.toLocaleDateString("en-US", options);
+
+  const endDate = new Date(endDateInput.value);
+  const endDateInForm = endDate.toLocaleDateString("en-US", options);
+
+  dataObject.startDate = startDateInForm;
+  dataObject.endDate = endDateInForm;
+
+  if (startDate.getTime() <= new Date().getTime() || endDate.getTime() <= startDate.getTime()) {
+    alert("Please select...");
+  } else {
+    array.push(dataObject);
+
+    localStorage.setItem(localStorageName, JSON.stringify(array));
+  }
+};
+
 const getFlightForm = () => {
   const flightData = {
-    flightStartDate: "",
-    flightEndDate: "",
+    startDate: "",
+    endDate: "",
     flightFrom: "",
     flightTo: "",
   };
 
-  const flightStartDate = new Date(inputFlightStartDate.value);
-  const flightStartDateInForm = flightStartDate.toLocaleDateString("en-US", options);
-
-  flightData.flightStartDate = flightStartDateInForm;
-
-  const flightEndDate = new Date(inputFlightEndDate.value);
-  const flightEndDateInForm = flightEndDate.toLocaleDateString("en-US", options);
-
-  flightData.flightEndDate = flightEndDateInForm;
-
   flightData.flightFrom = inputFrom.value;
   flightData.flightTo = inputTo.value;
 
-  if (flightStartDate.getTime() <= currentDate.getTime() || flightEndDate.getTime() <= flightStartDate.getTime()) {
-    buttonSearch.setAttribute("disabled", true);
-  } else {
-    buttonSearch.removeAttribute("disabled");
-  }
-
-  console.log(flightData);
-
-  inputFrom.value;
-  inputTo.value;
-
-  arrFlight.push(flightData);
-
-  localStorage.setItem("historyDataFlight", JSON.stringify(arrFlight));
+  setReusableFunction(inputFlightStartDate, inputFlightEndDate, flightData, arrFlight, "historyDataFlight");
 };
 
 flightClearButton.addEventListener("click", () => {
@@ -184,8 +173,8 @@ flightClearButton.addEventListener("click", () => {
 
 const getHotelForm = () => {
   const hotelData = {
-    hotelStartDate: "",
-    hotelEndDate: "",
+    startDate: "",
+    endDate: "",
     starsAmount: "",
     hotelCountry: "",
     hotelCity: "",
@@ -199,32 +188,10 @@ const getHotelForm = () => {
     });
   });
 
-  const hotelStartDate = new Date(inputHotelStartDate.value);
-  const hotelStartDateInForm = hotelStartDate.toLocaleDateString("en-US", options);
-
-  const hotelEndDate = new Date(inputHotelEndDate.value);
-  const hotelEndDateInForm = hotelEndDate.toLocaleDateString("en-US", options);
-
-  hotelData.hotelStartDate = hotelStartDateInForm;
-
-  hotelData.hotelEndDate = hotelEndDateInForm;
-
-  if (hotelStartDate.getTime() <= currentDate.getTime() || hotelEndDate.getTime() <= hotelStartDate.getTime()) {
-    buttonSearch.setAttribute("disabled", true);
-  } else {
-    buttonSearch.removeAttribute("disabled");
-  }
-
-  buttonHotelStars.innerHTML;
-  buttonHotelCountryMenu.innerHTML;
-  buttonHotelCityMenu.innerHTML;
-
   hotelData.hotelCountry = buttonHotelCountryMenu.innerHTML;
   hotelData.hotelCity = buttonHotelCityMenu.innerHTML;
 
-  arrHotel.push(hotelData);
-
-  localStorage.setItem("historyDataHotel", JSON.stringify(arrHotel));
+  setReusableFunction(inputHotelStartDate, inputHotelEndDate, hotelData, arrHotel, "historyDataHotel");
 };
 
 hotelClearButton.addEventListener("click", () => {
@@ -237,8 +204,8 @@ hotelClearButton.addEventListener("click", () => {
 
 const getCarForm = () => {
   const carData = {
-    carStartDate: "",
-    carEndDate: "",
+    startDate: "",
+    endDate: "",
     carType: "",
     carCountry: "",
     carCity: "",
@@ -252,32 +219,10 @@ const getCarForm = () => {
     });
   });
 
-  const carStartDate = new Date(inputCarStartDate.value);
-  const carStartDateInForm = carStartDate.toLocaleDateString("en-US", options);
-
-  carData.carStartDate = carStartDateInForm;
-
-  const carEndDate = new Date(inputCarEndDate.value);
-  const carEndDateInForm = carEndDate.toLocaleDateString("en-US", options);
-
-  carData.carEndDate = carEndDateInForm;
-
-  if (carStartDate.getTime() <= currentDate.getTime() || carEndDate.getTime() <= carStartDate.getTime()) {
-    buttonSearch.setAttribute("disabled", true);
-  } else {
-    buttonSearch.removeAttribute("disabled");
-  }
-
-  buttonCarType.innerHTML;
-  buttonCarCountryMenu.innerHTML;
-  buttonCarCityMenu.innerHTML;
-
   carData.carCountry = buttonCarCountryMenu.innerHTML;
   carData.carCity = buttonCarCityMenu.innerHTML;
 
-  arrCar.push(carData);
-
-  localStorage.setItem("historyDataCar", JSON.stringify(arrCar));
+  setReusableFunction(inputCarStartDate, inputCarEndDate, carData, arrCar, "historyDataCar");
 };
 
 carClearButton.addEventListener("click", () => {
@@ -288,22 +233,6 @@ carClearButton.addEventListener("click", () => {
   buttonCarCityMenu.innerHTML = "";
 });
 
-const buttonSearch = document.getElementById("button-search");
-
-const flightInput = document.getElementById("flight-input");
-const hotelInput = document.getElementById("hotel-input");
-const carInput = document.getElementById("car-input");
-
-formConteiner.forEach((form) => {
-  buttonSearch.addEventListener("click", () => {
-    if (form == flightInput) {
-      getFlightForm(form);
-    }
-    if (form == hotelInput) {
-      getHotelForm(form);
-    }
-    if (form == carInput) {
-      getCarForm(form);
-    }
-  });
-});
+buttonSearchFlights.addEventListener("click", getFlightForm);
+buttonSearchHotels.addEventListener("click", getHotelForm);
+buttonSearchCars.addEventListener("click", getCarForm);

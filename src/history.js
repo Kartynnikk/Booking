@@ -9,7 +9,7 @@ const historyValueCar = JSON.parse(historyDataCar);
 window.addEventListener("load", () => {
   historyValueFlight.forEach((element) => {
     let conteinerHistory = document.createElement("div");
-    conteinerHistory.className = "conteiner-history";
+    conteinerHistory.className = "container-history";
 
     const planeImage = document.createElement("i");
     planeImage.className = "fa fa-plane";
@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 
   historyValueHotel.forEach((element) => {
     let conteinerHistory = document.createElement("div");
-    conteinerHistory.className = "conteiner-history";
+    conteinerHistory.className = "container-history";
 
     const bedImage = document.createElement("i");
     bedImage.className = "fa fa-bed";
@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
 
   historyValueCar.forEach((element) => {
     let conteinerHistory = document.createElement("div");
-    conteinerHistory.className = "conteiner-history";
+    conteinerHistory.className = "container-history";
 
     const carImage = document.createElement("i");
     carImage.className = "fa fa-car";

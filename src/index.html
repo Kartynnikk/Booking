@@ -19,7 +19,7 @@
     <img src="./assets/Bookingcom-Logo100px.png" alt="logo">
   </div>
 
-    <div id="conteiner">
+    <div id="container">
         <nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active d-none d-md-block" id="flight-tab" data-bs-toggle="tab" data-bs-target="#flight-input" type="button" role="tab" aria-controls="flight-input" aria-selected="true"><i class="fa fa-plane"></i>Flights</button>
@@ -28,53 +28,53 @@
             </div>
         </nav>
 
-        <div class="tab-content" id="input-conteiner">
-            <div class="tab-pane form-conteiner fade show active " id="flight-input" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
+        <div class="tab-content" id="input-container">
+            <div class="tab-pane form-container fade show active " id="flight-input" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
                 <div class="col" id="date-input">
-                    <form class="row g-3 needs-validation d-none d-md-block" id="form-flight-startdate" method="get">
+                    <div class="row g-3 needs-validation d-none d-md-block" id="form-flight-startdate" method="get">
                         <label for="inputFlightsStartDate" class="form-label">Start Date</label>
                         <input type="date" class="form-control" id="input-flight-startdate" placeholder="mm/dd/yyyy" aria-label="First name" required>
-                    </form>
-                    <form class="row g-3 needs-validation d-none d-md-block" id="form-flight-enddate" method="get">
+                    </div>
+                    <div class="row g-3 needs-validation d-none d-md-block" id="form-flight-enddate" method="get">
                         <label for="inputFlightsStartDate" class="form-label">End Date</label>
                         <input type="date" class="form-control" id="input-flight-enddate" placeholder="mm/dd/yyyy" aria-label="Last name" required>
-                    </form>
+                    </div>
                 </div>
-                <form class="mb-3 needs-validation d-none d-md-block" id="form-input-from" method="get">
+                <div class="mb-3 needs-validation d-none d-md-block" id="form-input-from" method="get">
                     <label for="formGroupExampleInput" class="form-label">From</label>
                     <input type="text" class="form-control" id="input-from" required>
-                </form>
-                <form class="mb-3 needs-validation d-none d-md-block" id="form-input-to" method="get">
+                </div>
+                <div class="mb-3 needs-validation d-none d-md-block" id="form-input-to" method="get">
                     <label for="formGroupExampleInput2" class="form-label">To</label>
                     <input type="text" class="form-control" id="input-to" required>
-                </form>
+                </div>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="flight-button-clear" autocomplete="off">
                     <label class="btn btn-outline-primary d-none d-md-block" for="flight-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
+                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search-flights" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search-flights">Search</label>
 
                 </div>
             </div>
 
 
-            <div class="tab-pane form-conteiner fade show" id="hotel-input" role="tabpanel" aria-labelledby="hotel-tab" tabindex="0">
+            <div class="tab-pane form-container fade show" id="hotel-input" role="tabpanel" aria-labelledby="hotel-tab" tabindex="0">
                 <div class="col" id="date-input">
-                    <form class="row g-3 d-none d-md-block" id="form-hotel-startdate" method="get">
+                    <div class="row g-3 d-none d-md-block" id="form-hotel-startdate" method="get">
                         <label for="inputHotelStartDate" class="form-label">Start Date</label>
                         <input type="date" class="form-control" id="input-hotel-startdate" placeholder="mm/dd/yyyy" aria-label="First name">
-                    </form>
+                    </div>
 
-                    <form class="row g-3 d-none d-md-block" id="form-hotel-enddate" method="get">
+                    <div class="row g-3 d-none d-md-block" id="form-hotel-enddate" method="get">
                         <label for="inputHotelStartDate" class="form-label">End Date</label>
                         <input type="date" class="form-control" id="input-hotel-enddate" placeholder="mm/dd/yyyy" aria-label="Last name">
-                    </form>
+                    </div>
                 </div>
 
                 <h1 class="header d-none d-md-block">Amenities</h1>
 
-                <form class="dropdown d-none d-md-block" method="get" id="form-hotel-stars">
+                <div class="dropdown d-none d-md-block" method="get" id="form-hotel-stars">
                     <button class="btn btn-secondary dropdown-toggle" id="button-hotel-stars" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-star"></i>
                     </button>
@@ -85,48 +85,48 @@
                         <li value="4" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
                         <li value="5" class="dropdown-item star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
                     </ul>
-                </form>
+                </div>
 
                 <h1 class="header d-none d-md-block">Countries</h1>
 
-                <form class="dropdown d-none d-md-block" id="form-hotel-country-menu" method="get">
+                <div class="dropdown d-none d-md-block" id="form-hotel-country-menu" method="get">
                     <button class="btn btn-secondary dropdown-toggle" id="button-hotel-country-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu" id="hotel-country-menu"></ul>
-                </form>
+                </div>
 
                 <h1 class="header d-none d-md-block">Cities</h1>
 
-                <form class="dropdown d-none d-md-block" id="form-hotel-city-menu" method="get">
+                <div class="dropdown d-none d-md-block" id="form-hotel-city-menu" method="get">
                     <button class="btn btn-secondary dropdown-toggle" id="button-hotel-city-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu" id="hotel-city-menu"></ul>
-                </form>
+                </div>
 
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="hotel-button-clear" autocomplete="off" checked>
                     <label class="btn btn-outline-primary d-none d-md-block" for="hotel-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
+                    <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="button-search-hotels" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search-hotels">Search</label>
                 </div>
             </div>
 
 
-            <div class="tab-pane form-conteiner fade show" id="car-input" role="tabpanel" aria-labelledby="car-tab" tabindex="0">
+            <div class="tab-pane form-container fade show" id="car-input" role="tabpanel" aria-labelledby="car-tab" tabindex="0">
                 <div class="col" id="date-input">
-                    <form class="row g-3 d-none d-md-block" id="form-car-startdate" method="get">
+                    <div class="row g-3 d-none d-md-block" id="form-car-startdate" method="get">
                         <label for="inputCarStartDate" class="form-label">Start Date</label>
                         <input type="date" class="form-control" id="input-car-startdate" placeholder="mm/dd/yyyy" aria-label="First name">
-                    </form>
+                    </div>
 
-                    <form class="row g-3 d-none d-md-block" id="form-car-enddate" method="get">
+                    <div class="row g-3 d-none d-md-block" id="form-car-enddate" method="get">
                         <label for="inputCarStartDate" class="form-label">End Date</label>
                         <input type="date" class="form-control" id="input-car-enddate" placeholder="mm/dd/yyyy" aria-label="Last name">
-                    </form>
+                    </div>
                 </div>
 
                 <h1 class="header d-none d-md-block">Type</h1>
 
-                <form class="dropdown d-none d-md-block" method="get" id="form-car-stars">
+                <div class="dropdown d-none d-md-block" method="get" id="form-car-stars">
                     <button class="btn btn-secondary dropdown-toggle" id="button-car-type" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Business
                     </button>
@@ -134,34 +134,34 @@
                         <li class="dropdown-item type" id="business">Business</li>
                         <li class="dropdown-item type" id="economy">Economy</li>
                     </ul>
-                </form>
+                </div>
 
                 <h1 class="header d-none d-md-block">Countries</h1>
 
-                <form class="dropdown d-none d-md-block" id="form-car-country-menu" method="get">
+                <div class="dropdown d-none d-md-block" id="form-car-country-menu" method="get">
                     <button class="btn btn-secondary dropdown-toggle" id="button-car-country-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu" id="car-country-menu"></ul>
-                </form>
+                </div>
 
                 <h1 class="header d-none d-md-block">Cities</h1>
 
-                <form class="dropdown d-none d-md-block" id="form-car-city-menu" method="get">
+                <div class="dropdown d-none d-md-block" id="form-car-city-menu" method="get">
                     <button class="btn btn-secondary dropdown-toggle" id="button-car-city-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu" id="car-city-menu"></ul>
-                </form>
+                </div>
 
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="car-button-clear" autocomplete="off" checked>
                     <label class="btn btn-outline-primary d-none d-md-block" for="car-button-clear">Clear</label>
 
-                    <input type="radio" class="btn-check search d-none d-md-block" type="submit" name="btnradio" id="button-search" autocomplete="off">
-                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search">Search</label>
+                    <input type="radio" class="btn-check search d-none d-md-block" type="submit" name="btnradio" id="button-search-cars" autocomplete="off">
+                    <label class="btn btn-outline-primary d-none d-md-block" for="button-search-cars">Search</label>
                 </div>
             </div>
         </div>
     </div>
 
-    <form action="file:///C:/Users/USER/OneDrive/Документы/GitHub/Webpack/src/history.html">
+    <form action="file:///C:/Users/USER/OneDrive/Документы/GitHub/Booking/src/history.html">
       <input class="link-history d-none d-md-block" type="submit" value="Please check your data">
     </form>
 
